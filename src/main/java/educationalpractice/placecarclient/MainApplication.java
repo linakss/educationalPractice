@@ -1,6 +1,11 @@
 package educationalpractice.placecarclient;
-import
 
+import educationalpractice.placecarclient.Controller.AdminMain;
+import educationalpractice.placecarclient.Controller.SignInControl;
+import educationalpractice.placecarclient.Controller.UserMain1;
+import educationalpractice.placecarclient.Controller.WelcomeMain;
+import educationalpractice.placecarclient.Entity.Employee;
+import educationalpractice.placecarclient.Service.SignInServ;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -10,30 +15,59 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.io.IOException;
 
 public class MainApplication extends Application {
     private Stage stage;
     private FXMLLoader fxmlLoader;
-    //private static WelcomeMain mainController; //поменять контроллер
-    //private BorderPane rootLayout; вроде не нужно
+    private static WelcomeMain welcomeMain;
+    private static AdminMain adminMainContr;
+    private static UserMain1 userMain1Contr;
+    @Getter
+    @Setter
+    private static SignInControl signInController;
+    public static SignInServ sign;
+    @Getter
+    @Setter
+    public static Employee userInf = new Employee();
+    @Getter
+    @Setter
+    public static Employee userAdmin = new Employee();
+
     @Override
     public void start(Stage stage) throws IOException {
-        fxmlLoader = new FXMLLoader(MainApplication.class.getResource("main-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
-        Alert alert = new Alert(Alert.AlertType.NONE,  "Возникла ошибка!",
-                ButtonType.CLOSE, ButtonType.OK);
-
-        Button button = new Button("Понятно");
-
-        button.setOnAction(e -> {
-            alert.setAlertType(Alert.AlertType.CONFIRMATION);
-            alert.show();
-        });
+        fxmlLoader = new FXMLLoader(MainApplication.class.getResource("welcome-main.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 870, 570);
         stage.setTitle("Автостоянка 'PlaceCar'");
         stage.setResizable(false);
         stage.setScene(scene);
-        //mainController = fxmlLoader.getController(); //поменять контроллер
+        signInController = fxmlLoader.getController();
+        stage.show();
+    }
+    public static void startAdmin(String title) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("admin-main.fxml"));
+        Stage stage = new Stage();
+        Scene scene = new Scene(fxmlLoader.load(), 870, 570);
+        stage.setTitle("Автостоянка 'PlaceCar'");
+        stage.setResizable(false);
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.setScene(scene);
+        adminMainContr = fxmlLoader.getController();
+        stage.show();
+    }
+
+    public static void startUser(String title) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("user-main1.fxml"));
+        Stage stage = new Stage();
+        Scene scene = new Scene(fxmlLoader.load(), 870, 570);
+        stage.setTitle("Автостоянка 'PlaceCar'");
+        stage.setResizable(false);
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.setScene(scene);
+        userMain1Contr = fxmlLoader.getController();
         stage.show();
     }
 

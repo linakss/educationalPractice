@@ -1,5 +1,6 @@
 package educationalpractice.placecarclient.Controller;
 
+import educationalpractice.placecarclient.MainApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
@@ -14,7 +15,7 @@ public class WelcomeMain {
 
     @FXML
     void btnHelp(ActionEvent event) {
-
+        MainApplication.showDialog("help.fxml","Помощь");
     }
 
     @FXML

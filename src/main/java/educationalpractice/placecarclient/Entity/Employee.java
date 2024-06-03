@@ -2,6 +2,8 @@ package educationalpractice.placecarclient.Entity;
 import lombok.*;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Objects;
+
 
 @AllArgsConstructor
 @Getter
@@ -20,5 +22,24 @@ public class Employee {
     @NotNull
     private int numberPhone; // номер телефона сотрудника
 
+    private String login; //логин сотрудника системы
+    private String password; //пароль сотрудника системы
+
+    @Override
+    public String toString() {
+        return "login: " + login  +" password: " + password ;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Employee that)) return false;
+        return Objects.equals(getLogin(), that.getLogin()) && Objects.equals(getPassword(), that.getPassword());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getLogin(), getPassword());
+    }
 
 }

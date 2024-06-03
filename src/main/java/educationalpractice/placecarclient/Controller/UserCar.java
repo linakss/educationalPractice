@@ -1,5 +1,6 @@
 package educationalpractice.placecarclient.Controller;
 
+import educationalpractice.placecarclient.MainApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.text.Text;
@@ -35,17 +36,17 @@ public class UserCar {
 
     @FXML
     void btnHelp(ActionEvent event) {
-
+        MainApplication.showDialog("help.fxml","Помощь");
     }
 
     @FXML
     void btnOpenCarUser(ActionEvent event) {
-
+        MainApplication.showDialog("user-car.fxml","Автостоянка 'PlaceCar'");
     }
 
     @FXML
     void btnOpenHomeUser(ActionEvent event) {
-
+        MainApplication.showDialog("user-main1.fxml","Автостоянка 'PlaceCar'");
     }
 
 }
