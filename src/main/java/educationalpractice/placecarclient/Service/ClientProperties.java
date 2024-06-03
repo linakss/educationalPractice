@@ -39,6 +39,9 @@ public class ClientProperties {
     private String saveEmployee;
     private String updateEmployee;
     private String deleteEmployee;
+    private String checkEmployee;
+
+
 
 
 
@@ -76,8 +79,12 @@ public class ClientProperties {
             saveEmployee = properties.getProperty("employee.save");
             updateEmployee = properties.getProperty("employee.update");
             deleteEmployee = properties.getProperty("employee.del");
+            checkEmployee = properties.getProperty("employee.check");
         }catch (IOException e){
             e.printStackTrace();
         }
     }
-        }
+}
+
+
+

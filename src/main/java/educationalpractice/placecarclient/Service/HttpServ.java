@@ -16,6 +16,7 @@ public class HttpServ {
                 .url(url)
                 .build();
         try (Response response = client.newCall(request).execute()) {
+            System.out.println(response);
             if (!response.isSuccessful()) {
                 throw new IOException("Зaпpoc к cepвepy не был успешен: " +
                         response.code() + " " + response.message());

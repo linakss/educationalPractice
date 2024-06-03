@@ -1,7 +1,7 @@
 package educationalpractice.placecarclient;
 
+
 import educationalpractice.placecarclient.Controller.AdminMain;
-import educationalpractice.placecarclient.Controller.SignInControl;
 import educationalpractice.placecarclient.Controller.UserMain1;
 import educationalpractice.placecarclient.Controller.WelcomeMain;
 import educationalpractice.placecarclient.Entity.Employee;
@@ -23,19 +23,18 @@ import java.io.IOException;
 public class MainApplication extends Application {
     private Stage stage;
     private FXMLLoader fxmlLoader;
-    private static WelcomeMain welcomeMain;
     private static AdminMain adminMainContr;
     private static UserMain1 userMain1Contr;
     @Getter
     @Setter
-    private static SignInControl signInController;
-    public static SignInServ sign;
+    private static WelcomeMain signInController;
+    public static SignInServ sign = new SignInServ();
     @Getter
     @Setter
     public static Employee userInf = new Employee();
-    @Getter
-    @Setter
-    public static Employee userAdmin = new Employee();
+//    @Getter
+//    @Setter
+//    public static Employee userAdmin = new Employee();
 
     @Override
     public void start(Stage stage) throws IOException {

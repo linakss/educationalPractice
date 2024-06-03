@@ -20,7 +20,7 @@ public class Employee {
     @NotNull
     private String role; //роль сотрудника системы
     @NotNull
-    private int numberPhone; // номер телефона сотрудника
+    private String numberPhone; // номер телефона сотрудника
 
     private String login; //логин сотрудника системы
     private String password; //пароль сотрудника системы

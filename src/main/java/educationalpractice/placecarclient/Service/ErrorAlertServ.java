@@ -1,7 +1,6 @@
 package educationalpractice.placecarclient.Service;
 
 
-import educationalpractice.placecarclient.Entity.Car;
 import educationalpractice.placecarclient.Entity.User;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -140,5 +139,10 @@ public class ErrorAlertServ extends Application {
         e.printStackTrace(pw);
         String s = sw.toString();
         return s;
+    }
+
+    public void didntfoundEmployee() {
+        String whatMistakeStr = "Вы пытаетесь зайти под несуществующим пользователем! Проверьте ввод логина и пароля (и на крайняк работу сервера)...";
+        showAlertWithHeaderText(whatMistakeStr);
     }
 }

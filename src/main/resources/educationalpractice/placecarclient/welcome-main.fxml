@@ -24,7 +24,7 @@
                </font>
             </Text>
             <TextField fx:id="login" layoutX="44.0" layoutY="84.0" onAction="#strokeLogin" style="-fx-background-radius: 12; -fx-border-radius: 12; -fx-border-color: #545454; -fx-border-style: dashed;" />
-            <Button layoutX="44.0" layoutY="255.0" minHeight="20.0" minWidth="100.0" mnemonicParsing="false" onAction="#btnSignIn" style="-fx-background-radius: 12; -fx-background-color: #F2F2F2; -fx-border-radius: 12; -fx-border-style: dashed; -fx-border-color: #545454;" text="Войти" textFill="#545454">
+            <Button fx:id="btnSignIn" layoutX="44.0" layoutY="255.0" minHeight="20.0" minWidth="100.0" mnemonicParsing="false" onAction="#btnSignIn" style="-fx-background-radius: 12; -fx-background-color: #F2F2F2; -fx-border-radius: 12; -fx-border-style: dashed; -fx-border-color: #545454;" text="Войти" textFill="#545454">
                <font>
                   <Font size="13.0" />
                </font>
