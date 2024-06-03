@@ -8,17 +8,17 @@ import org.jetbrains.annotations.NotNull;
 @Setter
 @NoArgsConstructor
 public class Employee {
-    private Long idEmployee;
+    private Long idEmployee; //индивид. номер сотрудника системы в базе
     @NotNull
-    private String lastname;
+    private String lastname; //отчество сотрудника системы
     @NotNull
-    private String name;
+    private String name; //имя сотрудника системы
     @NotNull
-    private String surname;
+    private String surname; //фамилия сотрудника системы
     @NotNull
-    private String role;
+    private String role; //роль сотрудника системы
     @NotNull
-    private String ;
+    private int numberPhone; // номер телефона сотрудника
 
 
 }

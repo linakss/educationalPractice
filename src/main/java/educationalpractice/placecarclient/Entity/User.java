@@ -11,20 +11,20 @@ import java.sql.Time;
 @Setter
 @NoArgsConstructor
 public class User {
-    private Long idUser;
-    @NotNull
-    private String password;
-    @NotNull
-    private String login;
+    private Long idUser; //индивид. номер гостя парковки
 
-    @NotNull
+/*
+наследовать айди сотрудника с паролем, логином, айди карты, айди парковки
+ */
+
+/*    @NotNull
     private Time yearEntry; //год въезда
     @NotNull
     private Time monthEntry; //месяц въезда
     @NotNull
     private Time dayEntry; //день въезда
     @NotNull
-    private Time timeEntry;
+    private Time timeEntry; //время въезда
 
     @NotNull
     private Time yearDeparture; //год выезда
@@ -33,7 +33,7 @@ public class User {
     @NotNull
     private Time dayDeparture;//день выезда
     @NotNull
-    private Time timeDeparture;//время выезда
+    private Time timeDeparture;//время выезда*/
     @Override
     public String toString() {
         return "ф";

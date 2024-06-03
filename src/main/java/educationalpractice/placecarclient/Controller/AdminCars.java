@@ -4,7 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableView;
 
-public class AdminCarsController {
+public class AdminCars {
 
     @FXML
     private TableView<?> tableCars;
