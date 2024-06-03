@@ -1,6 +1,8 @@
 package educationalpractice.placecarclient.Controller;
 
+import educationalpractice.placecarclient.Entity.PM;
 import educationalpractice.placecarclient.MainApplication;
+import educationalpractice.placecarclient.Service.UserServ;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -97,10 +99,16 @@ public class UserMain1 {
 
     @FXML
     private Text yellowPm;
+    private final UserServ service = new UserServ();
+    private boolean addFlag = true;
 
     @FXML
     void OnNumberPM1(ActionEvent event) {
-
+//        PM pm = new PM();
+//        pm.setRyadPM();
+//        if (addFlag) {
+//
+//        }
     }
 
     @FXML
