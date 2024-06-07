@@ -6,6 +6,7 @@ import educationalpractice.placecarclient.Entity.Employee;
 import educationalpractice.placecarclient.MainApplication;
 import educationalpractice.placecarclient.Response.DataResp;
 import educationalpractice.placecarclient.Service.*;
+import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -15,6 +16,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import lombok.Getter;
 
 import java.io.IOException;
@@ -65,8 +67,15 @@ public class AdminEmployee {
 
     @FXML
     private Button btnEditEmployee;
+
+    @FXML
+    private Button btnOpenCars;
+
+    @FXML
+    private Button btnOpenHome;
     @FXML
     void btnAddEmployee(ActionEvent event) {
+        MainApplication.showDialog("admin-employee-edit.fxml","Добавление пользователя в базу");
 
     }
 
@@ -82,21 +91,27 @@ public class AdminEmployee {
 
     @FXML
     void btnEditEmployee(ActionEvent event) {
-        MainApplication.showDialog("admin-employee-edit.fxml","Автостоянка 'PlaceCar'");
+        MainApplication.showDialog("admin-employee-edit.fxml","Редактирование пользователя");
     }
 
     @FXML
     void btnOpenCars(ActionEvent event) {
-
+        MainApplication.showDialog("admin-cars.fxml","Автостоянка 'PlaceCar'");
+        Stage stage = (Stage) btnOpenCars.getScene().getWindow();
+        stage.close();
     }
 
     @FXML
     void btnOpenHome(ActionEvent event) {
-
+        MainApplication.showDialog("admin-main.fxml","Главная");
+        Stage stage = (Stage) btnOpenHome.getScene().getWindow();
+        stage.close();
     }
 
     @FXML
     private void initialize() {
+        service.getAll();
+        whoUser.setText(userAdmin.getSurname());
 //        tableEmployee.setItems(service.getData());
         if (userAdmin.getRole().equals("Администратор") ) { //роль равна админу или охране
             btnAddEmployee.setVisible(true);
@@ -111,7 +126,7 @@ public class AdminEmployee {
         }
         System.out.println("Введенный: "+userInf.getLogin()+" "+userInf.getPassword());
         //связываем поля таблицы со столбцами
-        colFIO.setCellValueFactory(new PropertyValueFactory<Employee, String>("fio"));
+        colFIO.setCellValueFactory(cellData -> Bindings.concat(cellData.getValue().getSurname()," ",cellData.getValue().getName()," ",cellData.getValue().getLastname()," " ));
         colRole.setCellValueFactory(new PropertyValueFactory<Employee, String>("role"));
         colNumberPhone.setCellValueFactory(new PropertyValueFactory<Employee, String>("numberPhone"));
         colLogin.setCellValueFactory(new PropertyValueFactory<Employee, String>("login"));

@@ -5,11 +5,20 @@ import educationalpractice.placecarclient.MainApplication;
 import educationalpractice.placecarclient.Service.PMServ;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
+
+import static educationalpractice.placecarclient.MainApplication.userAdmin;
 
 public class AdminMain {
     private final PMServ service = new PMServ();
+    @FXML
+    private Button btnEditPM;
+
+    @FXML
+    private Button btnEditPMColor;
 
     @FXML
     private TableView<PM> tablePM;
@@ -29,13 +38,13 @@ public class AdminMain {
     @FXML
     private Text textNumberPhone;
     @FXML
-    private void initialize(){
-        //получаем все PM с сервера
-        service.getAll();
-        //связываем поля таблицы со столбцами
-        //columnAuthor.setCellValueFactory(new PropertyValueFactory<BookEntity, String>("author"));
-        tablePM.setItems(service.getData());
-    }
+    private Button btnOpenCars;
+
+    @FXML
+    private Button btnOpenEmployee;
+    @FXML
+    private Text whoUser;
+
 
     @FXML
     void btnEditPM(ActionEvent event) {
@@ -50,11 +59,25 @@ public class AdminMain {
     @FXML
     void btnOpenCars(ActionEvent event) {
         MainApplication.showDialog("admin-cars.fxml","Автостоянка 'PlaceCar'");
+        Stage stage = (Stage) btnOpenCars.getScene().getWindow();
+        stage.close();
     }
 
     @FXML
     void btnOpenEmployee(ActionEvent event) {
         MainApplication.showDialog("admin-employee.fxml","Автостоянка 'PlaceCar'");
+        Stage stage = (Stage) btnOpenEmployee.getScene().getWindow();
+        stage.close();
     }
+    @FXML
+    private void initialize() {
+        whoUser.setText(userAdmin.getSurname());
+        if (userAdmin.getRole().equals("Администратор")) { //роль равна админу или охране
+            btnEditPM.setVisible(true);
 
+        } else {
+            btnEditPM.setVisible(false);
+
+        }
+    }
 }
