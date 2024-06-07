@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 
 //adminimport static educationalpractice.placecarclient.MainApplication.userAdmin;
+import static educationalpractice.placecarclient.MainApplication.userAdmin;
 import static educationalpractice.placecarclient.MainApplication.userInf;
 
 public class SignInServ {
@@ -41,7 +42,11 @@ public class SignInServ {
         DataResp<Employee> response = service.getObject(temp, dataType);
 
         if (response.isSuccess()){
-            MainApplication.startAdmin("Главная");
+            if (userInf.getRole().equals("Администратор")){
+                userAdmin=userInf;
+                MainApplication.startAdmin("Главная");}
+            else {
+                MainApplication.startUser("Главная");}
             return response.getData();
         }else{
             System.out.printf("error");

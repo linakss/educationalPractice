@@ -3,6 +3,7 @@ package educationalpractice.placecarclient.Service;
 import com.google.gson.reflect.TypeToken;
 import educationalpractice.placecarclient.Entity.PM;
 import educationalpractice.placecarclient.Entity.PM;
+import educationalpractice.placecarclient.Places;
 import educationalpractice.placecarclient.Response.BaseResp;
 import educationalpractice.placecarclient.Response.DataResp;
 import educationalpractice.placecarclient.Response.ListResp;
@@ -23,6 +24,10 @@ public class PMServ {
     }.getType();
     private Type listType = new TypeToken<ListResp<PM>>() {
     }.getType();
+    Places[] place1 = new Places[10];
+    Places[] place2 = new Places[10];
+
+
 
     public void findById(PM data) {
         String temp = http.get(prop.getFindByIdPm() + data.getIdPM());

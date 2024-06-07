@@ -31,10 +31,13 @@ public class MainApplication extends Application {
     public static SignInServ sign = new SignInServ();
     @Getter
     @Setter
-    public static Employee userInf = new Employee();
-//    @Getter
-//    @Setter
-//    public static Employee userAdmin = new Employee();
+    public static Employee userInf = new Employee(); // данные временного пользователя (юзер)
+    @Getter
+    @Setter
+    public static Employee userAdmin = new Employee(); // обозначение, что прога для админа
+    @Getter
+    @Setter
+    public static Employee userSecurity = new Employee(); // обозначение, что прога для охранника
 
     @Override
     public void start(Stage stage) throws IOException {

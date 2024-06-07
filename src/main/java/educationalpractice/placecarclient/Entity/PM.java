@@ -19,4 +19,7 @@ public class PM {
     @NotNull
     private String statusPM; // статус парковочного места (свободно, забронировано, занято)
 
+    private Card card;
+    private User user;
+
 }

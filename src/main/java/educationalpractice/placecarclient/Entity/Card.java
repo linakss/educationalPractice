@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.List;
+
 @AllArgsConstructor
 @Getter
 @Setter
@@ -15,7 +17,7 @@ public class Card {
     @NotNull
     private int numberCard; // номер банковской карты
     @NotNull
-    private String srokCard; // срок действия карты
+    private String termCard; // срок действия карты
     @NotNull
     private String bankCard; // банк карты гостя
     @NotNull
@@ -23,5 +25,8 @@ public class Card {
     @NotNull
     private int cvvCard; // cvv-код на оборотной стороне карты
 
+    @NotNull
+    private User user;
+    private List<PM> pmList;
 
 }

@@ -29,19 +29,19 @@
                 </Button>
             </children>
         </Pane>
-        <Button layoutX="306.0" layoutY="487.0" minHeight="20.0" minWidth="120.0" mnemonicParsing="false" onAction="#btnEditEmployee" style="-fx-background-radius: 12; -fx-border-color: #545454; -fx-border-radius: 12; -fx-border-style: dashed; -fx-background-color: #F2F2F2;" text="Редактировать" textFill="#545454">
+        <Button fx:id="btnEditEmployee" layoutX="306.0" layoutY="487.0" minHeight="20.0" minWidth="120.0" mnemonicParsing="false" onAction="#btnEditEmployee" style="-fx-background-radius: 12; -fx-border-color: #545454; -fx-border-radius: 12; -fx-border-style: dashed; -fx-background-color: #F2F2F2;" text="Редактировать" textFill="#545454">
             <font>
                 <Font size="13.0" />
             </font>
         </Button>
         <TableView fx:id="tableEmployee" layoutX="175.0" layoutY="66.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="360.0" prefWidth="676.0" style="-fx-border-style: dashed; -fx-border-color: #545454;">
             <columns>
-                <TableColumn maxWidth="100.0" minWidth="170.0" prefWidth="50.0" text="ФИО" />
-                <TableColumn maxWidth="100.0" minWidth="100.0" prefWidth="25.0" text="Роль" />
-                <TableColumn maxWidth="100.0" minWidth="115.0" prefWidth="25.0" text="номер т." />
-                <TableColumn maxWidth="100.0" minWidth="100.0" prefWidth="25.0" text="логин" />
-                <TableColumn maxWidth="100.0" minWidth="100.0" prefWidth="25.0" text="пароль" />
-                <TableColumn maxWidth="100.0" minWidth="90.0" prefWidth="25.0" text="гос. номер" />
+                <TableColumn fx:id="colFIO" maxWidth="100.0" minWidth="170.0" prefWidth="50.0" text="ФИО" />
+                <TableColumn fx:id="colRole" maxWidth="100.0" minWidth="100.0" prefWidth="25.0" text="Роль" />
+                <TableColumn fx:id="colNumberPhone" maxWidth="100.0" minWidth="115.0" prefWidth="25.0" text="номер т." />
+                <TableColumn fx:id="colLogin" maxWidth="100.0" minWidth="100.0" prefWidth="25.0" text="логин" />
+                <TableColumn fx:id="colPassword" maxWidth="100.0" minWidth="100.0" prefWidth="25.0" text="пароль" />
+                <TableColumn fx:id="colGosNumber" maxWidth="100.0" minWidth="90.0" prefWidth="25.0" text="гос. номер" />
             </columns>
         </TableView>
         <Text fill="#545454" layoutX="175.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Все сотрудники:">
@@ -49,17 +49,17 @@
                 <Font size="18.0" />
             </font>
         </Text>
-      <Button layoutX="438.0" layoutY="487.0" minHeight="20.0" minWidth="120.0" mnemonicParsing="false" onAction="#btnDeleteEmployee" style="-fx-background-radius: 12; -fx-border-color: #545454; -fx-border-radius: 12; -fx-border-style: dashed; -fx-background-color: #F2F2F2;" text="Удалить" textFill="#545454">
+      <Button fx:id="btnDeleteEmployee" layoutX="438.0" layoutY="487.0" minHeight="20.0" minWidth="120.0" mnemonicParsing="false" onAction="#btnDeleteEmployee" style="-fx-background-radius: 12; -fx-border-color: #545454; -fx-border-radius: 12; -fx-border-style: dashed; -fx-background-color: #F2F2F2;" text="Удалить" textFill="#545454">
          <font>
             <Font size="13.0" />
          </font>
       </Button>
-      <Button layoutX="175.0" layoutY="487.0" minHeight="20.0" minWidth="120.0" mnemonicParsing="false" onAction="#btnAddEmployee" style="-fx-background-radius: 12; -fx-border-color: #545454; -fx-border-radius: 12; -fx-border-style: dashed; -fx-background-color: #F2F2F2;" text="Добавить" textFill="#545454">
+      <Button fx:id="btnAddEmployee" layoutX="175.0" layoutY="487.0" minHeight="20.0" minWidth="120.0" mnemonicParsing="false" onAction="#btnAddEmployee" style="-fx-background-radius: 12; -fx-border-color: #545454; -fx-border-radius: 12; -fx-border-style: dashed; -fx-background-color: #F2F2F2;" text="Добавить" textFill="#545454">
          <font>
             <Font size="13.0" />
          </font>
       </Button>
-      <Button layoutX="695.0" layoutY="487.0" minHeight="20.0" minWidth="120.0" mnemonicParsing="false" onAction="#btnCancelEmployee" style="-fx-background-radius: 12; -fx-border-color: #545454; -fx-border-radius: 12; -fx-border-style: dashed; -fx-background-color: #F2F2F2;" text="Отмена" textFill="#545454">
+      <Button fx:id="btnCancelEmployee" layoutX="695.0" layoutY="487.0" minHeight="20.0" minWidth="120.0" mnemonicParsing="false" onAction="#btnCancelEmployee" style="-fx-background-radius: 12; -fx-border-color: #545454; -fx-border-radius: 12; -fx-border-style: dashed; -fx-background-color: #F2F2F2;" text="Отмена" textFill="#545454">
          <font>
             <Font size="13.0" />
          </font>

@@ -2,6 +2,7 @@ package educationalpractice.placecarclient.Entity;
 import lombok.*;
 import org.jetbrains.annotations.NotNull;
 
+import java.awt.*;
 import java.util.Objects;
 
 
@@ -17,12 +18,14 @@ public class Employee {
     private String name; //имя сотрудника системы
     @NotNull
     private String surname; //фамилия сотрудника системы
+    private String fio;
     @NotNull
     private String role; //роль сотрудника системы
     @NotNull
     private String numberPhone; // номер телефона сотрудника
-
+    @NotNull
     private String login; //логин сотрудника системы
+    @NotNull
     private String password; //пароль сотрудника системы
 
     @Override
@@ -41,5 +44,12 @@ public class Employee {
     public int hashCode() {
         return Objects.hash(getLogin(), getPassword());
     }
+
+    public boolean whoRole(Object o) {
+        if (o == "Администратор") return true;
+        return false;
+    }
+
+
 
 }

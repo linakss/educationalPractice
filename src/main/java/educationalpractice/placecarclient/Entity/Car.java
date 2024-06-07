@@ -18,5 +18,7 @@ public class Car {
     private String markCar; //марка машины
     @NotNull
     private String gosNumberCar; //государственнный номер машины
-    //надо еще накинуть паттерн на гос номер машины чтобы сначала была буква 3 цифры и 2 буквы + регион 3 цифры
+
+    @NotNull
+    private User user;
 }

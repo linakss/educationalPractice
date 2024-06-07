@@ -4,6 +4,8 @@ import lombok.*;
 import org.jetbrains.annotations.NotNull;
 
 import java.sql.Time;
+import java.time.LocalDateTime;
+import java.util.List;
 
 
 @AllArgsConstructor
@@ -12,30 +14,16 @@ import java.sql.Time;
 @NoArgsConstructor
 public class User {
     private Long idUser; //индивид. номер гостя парковки
+    private String timeEntry; //Время въезда
+    private String timeDeparture; //Время выезда
 
-/*
-наследовать айди сотрудника с паролем, логином, айди карты, айди парковки
- */
+    private Employee employee;
 
-/*    @NotNull
-    private Time yearEntry; //год въезда
-    @NotNull
-    private Time monthEntry; //месяц въезда
-    @NotNull
-    private Time dayEntry; //день въезда
-    @NotNull
-    private Time timeEntry; //время въезда
-
-    @NotNull
-    private Time yearDeparture; //год выезда
-    @NotNull
-    private Time monthDeparture;//месяц выезда
-    @NotNull
-    private Time dayDeparture;//день выезда
-    @NotNull
-    private Time timeDeparture;//время выезда*/
+    private List<Card> cardList;
+    private List<Car> carList;
+    private List<PM> pmList;
     @Override
     public String toString() {
-        return "ф";
+        return "";
     }
 }
