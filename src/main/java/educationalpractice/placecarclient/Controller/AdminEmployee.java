@@ -98,7 +98,7 @@ public class AdminEmployee {
     @FXML
     private void initialize() {
 //        tableEmployee.setItems(service.getData());
-        if (userAdmin.getRole() == "Администратор") { //роль равна админу или охране
+        if (userAdmin.getRole().equals("Администратор") ) { //роль равна админу или охране
             btnAddEmployee.setVisible(true);
             btnEditEmployee.setVisible(true);
             btnDeleteEmployee.setVisible(true);
@@ -109,12 +109,7 @@ public class AdminEmployee {
             btnDeleteEmployee.setVisible(false);
             btnCancelEmployee.setVisible(false);
         }
-
-        //System.out.println("Установленный: "+userAdmin.getLogin()+" "+userAdmin.getPassword());
-
         System.out.println("Введенный: "+userInf.getLogin()+" "+userInf.getPassword());
-
-
         //связываем поля таблицы со столбцами
         colFIO.setCellValueFactory(new PropertyValueFactory<Employee, String>("fio"));
         colRole.setCellValueFactory(new PropertyValueFactory<Employee, String>("role"));
