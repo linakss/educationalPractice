@@ -35,9 +35,9 @@ public class MainApplication extends Application {
     @Getter
     @Setter
     public static Employee userAdmin = new Employee(); // обозначение, что прога для админа
-    @Getter
-    @Setter
-    public static Employee userSecurity = new Employee(); // обозначение, что прога для охранника
+//    @Getter
+//    @Setter
+//    public static Employee userSecurity = new Employee(); // обозначение, что прога для охранника
 
     @Override
     public void start(Stage stage) throws IOException {

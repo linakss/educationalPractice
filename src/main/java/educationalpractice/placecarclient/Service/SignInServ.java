@@ -12,6 +12,7 @@ import java.lang.reflect.Type;
 
 //adminimport static educationalpractice.placecarclient.MainApplication.userAdmin;
 import static educationalpractice.placecarclient.MainApplication.userAdmin;
+//import static educationalpractice.placecarclient.MainApplication.userSecurity;
 import static educationalpractice.placecarclient.MainApplication.userInf;
 
 public class SignInServ {
@@ -42,8 +43,9 @@ public class SignInServ {
         DataResp<Employee> response = service.getObject(temp, dataType);
 
         if (response.isSuccess()){
-            if (userInf.getRole().equals("Администратор")){
-                userAdmin=userInf;
+            Employee user = response.getData();
+            if (user.getRole().equals("Администратор") || user.getRole().equals("Охранник")){
+                userAdmin=user;
                 MainApplication.startAdmin("Главная");}
             else {
                 MainApplication.startUser("Главная");}

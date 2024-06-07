@@ -1,10 +1,13 @@
 package educationalpractice.placecarclient.Controller;
-
+import com.google.gson.reflect.TypeToken;
+import java.lang.reflect.Type;
 import educationalpractice.placecarclient.Entity.Car;
 import educationalpractice.placecarclient.Entity.Employee;
 import educationalpractice.placecarclient.MainApplication;
-import educationalpractice.placecarclient.Service.EmployeeServ;
-import educationalpractice.placecarclient.Service.ErrorAlertServ;
+import educationalpractice.placecarclient.Response.DataResp;
+import educationalpractice.placecarclient.Service.*;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -12,6 +15,9 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
+import lombok.Getter;
+
+import java.io.IOException;
 
 import static educationalpractice.placecarclient.MainApplication.userAdmin;
 import static educationalpractice.placecarclient.MainApplication.userInf;
@@ -19,6 +25,9 @@ import static educationalpractice.placecarclient.MainApplication.userInf;
 public class AdminEmployee {
     private final EmployeeServ service = new EmployeeServ();
     private final ErrorAlertServ alertService = new ErrorAlertServ();
+    @Getter
+    private ObservableList<Employee> data = FXCollections.observableArrayList();
+
     private boolean addFlag = true;
     private Employee getSelectionElement() {
         Employee temp = tableEmployee.getSelectionModel().getSelectedItem();
@@ -87,11 +96,9 @@ public class AdminEmployee {
     }
 
     @FXML
-    private void initialize(){
-        //получаем список с сервера
-        service.getAll();
+    private void initialize() {
 //        tableEmployee.setItems(service.getData());
-        if (userInf.whoRole(userInf)) { //роль равна админу или охране
+        if (userAdmin.getRole() == "Администратор") { //роль равна админу или охране
             btnAddEmployee.setVisible(true);
             btnEditEmployee.setVisible(true);
             btnDeleteEmployee.setVisible(true);
@@ -116,6 +123,7 @@ public class AdminEmployee {
         colPassword.setCellValueFactory(new PropertyValueFactory<Employee, String>("password"));
         colGosNumber.setCellValueFactory(new PropertyValueFactory<Car, String>("gosNumberCar"));
         tableEmployee.setItems(service.getData());
+
     }
 
 }

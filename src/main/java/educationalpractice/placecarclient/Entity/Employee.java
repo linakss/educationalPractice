@@ -45,10 +45,7 @@ public class Employee {
         return Objects.hash(getLogin(), getPassword());
     }
 
-    public boolean whoRole(Object o) {
-        if (o == "Администратор") return true;
-        return false;
-    }
+
 
 
 
