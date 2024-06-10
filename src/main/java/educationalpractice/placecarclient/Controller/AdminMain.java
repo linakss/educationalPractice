@@ -2,6 +2,7 @@ package educationalpractice.placecarclient.Controller;
 
 import educationalpractice.placecarclient.Entity.PM;
 import educationalpractice.placecarclient.MainApplication;
+import educationalpractice.placecarclient.Places;
 import educationalpractice.placecarclient.Service.PMServ;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -45,7 +46,8 @@ public class AdminMain {
     @FXML
     private Text whoUser;
 
-
+//    Places [] place = new Places[10];
+//    place [0]= new Places(0,0);
     @FXML
     void btnEditPM(ActionEvent event) {
         MainApplication.showDialog("admin-main-edit.fxml","Автостоянка 'PlaceCar'");
