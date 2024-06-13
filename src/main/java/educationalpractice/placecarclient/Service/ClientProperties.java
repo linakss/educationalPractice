@@ -33,6 +33,7 @@ public class ClientProperties {
     private String savePm;
     private String updatePm;
     private String deletePm;
+    private String checkPm;
 
     private String allEmployee;
     private String findByIdEmployee;
@@ -69,6 +70,7 @@ public class ClientProperties {
             deleteUser = properties.getProperty("user.del");
 
             allPm = properties.getProperty("pm.getAll");
+            checkPm = properties.getProperty("pm.checkini");
             findByIdPm = properties.getProperty("pm.findById");
             savePm = properties.getProperty("pm.save");
             updatePm = properties.getProperty("pm.update");

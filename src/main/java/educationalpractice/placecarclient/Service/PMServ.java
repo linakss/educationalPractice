@@ -11,6 +11,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import lombok.Getter;
 
+import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.Comparator;
 
@@ -88,5 +89,22 @@ public class PMServ {
             throw new RuntimeException(response.getMessage());
         }
     }
+
+//    public PM checkUserData(PM data) throws IOException {
+//        //String url = "http://localhost:2825/api/v1/user?username=" + username + "&password=" + password;
+//        String temp = http.get(prop.getCheckUser() + data.getUsername()+"&password="+data.getPassword());
+//        DataResponse<UsersEntity> respose = service.getObject(temp, dataType);
+//        if (respose.isSuccess()){
+//            //alertService.showResUserCheck(respose.getData(),"Найдено совпадение по вашим данным!");
+//            MainApplication.start2("Главная");
+//            return respose.getData();
+//
+//        }else{
+//
+//            alertService.dinfoundUser();
+//
+//        }
+//        return null;
+//    }
 }
 

@@ -8,6 +8,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -16,13 +18,15 @@ import static educationalpractice.placecarclient.MainApplication.userAdmin;
 public class AdminMain {
     private final PMServ service = new PMServ();
     @FXML
+    private AnchorPane tableContainer; // Это AnchorPane из вашего FXML файла
+
+    @FXML
     private Button btnEditPM;
 
     @FXML
-    private Button btnEditPMColor;
+    public static Button btnEditPMColor;
 
-    @FXML
-    private TableView<PM> tablePM;
+
 
     @FXML
     private Text textCar;
@@ -53,10 +57,11 @@ public class AdminMain {
         MainApplication.showDialog("admin-main-edit.fxml","Автостоянка 'PlaceCar'");
     }
 
-    @FXML
-    void btnEditPMColor(ActionEvent event) {
+//    @FXML
+//    void btnEditPMColor(ActionEvent event) {
+//
+//    }
 
-    }
 
     @FXML
     void btnOpenCars(ActionEvent event) {
@@ -81,5 +86,14 @@ public class AdminMain {
             btnEditPM.setVisible(false);
 
         }
+
+       Places gridPanelClass = new Places();
+        GridPane gridPanel = gridPanelClass.createGridPanel();
+        gridPanel.setLayoutX(-350); // Задает положение по оси X
+        gridPanel.setLayoutY(0); // Задает положение по оси Y
+
+        tableContainer.getChildren().add(gridPanel);
+
+
     }
 }
