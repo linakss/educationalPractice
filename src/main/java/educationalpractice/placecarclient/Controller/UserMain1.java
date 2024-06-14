@@ -123,7 +123,7 @@ public class UserMain1 {
 
     @FXML
     void btnOpenPMs(ActionEvent event) {
-        MainApplication.showDialog("user-main1.fxml","Автостоянка 'PlaceCar'");
+        MainApplication.showDialog("user-main2.fxml","Автостоянка 'PlaceCar'");
     }
 
     @FXML

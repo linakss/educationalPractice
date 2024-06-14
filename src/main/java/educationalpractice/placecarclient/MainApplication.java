@@ -5,6 +5,7 @@ import educationalpractice.placecarclient.Controller.AdminMain;
 import educationalpractice.placecarclient.Controller.UserMain1;
 import educationalpractice.placecarclient.Controller.WelcomeMain;
 import educationalpractice.placecarclient.Entity.Employee;
+import educationalpractice.placecarclient.Entity.PM;
 import educationalpractice.placecarclient.Service.SignInServ;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -23,6 +24,7 @@ import java.io.IOException;
 public class MainApplication extends Application {
     private Stage stage;
     private FXMLLoader fxmlLoader;
+    public  static PM idPMSer;
     private static AdminMain adminMainContr;
     private static UserMain1 userMain1Contr;
     @Getter
