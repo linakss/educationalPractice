@@ -2,9 +2,16 @@ package educationalpractice.placecarclient.Controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 public class UserCardBron {
+
+    @FXML
+    private Button btnCancelEditCard;
+
+    @FXML
+    private Button btnSaveEditCard;
 
     @FXML
     private TextField strokeBankCard;

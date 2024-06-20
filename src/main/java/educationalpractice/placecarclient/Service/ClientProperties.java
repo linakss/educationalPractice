@@ -42,9 +42,11 @@ public class ClientProperties {
     private String deleteEmployee;
     private String checkEmployee;
 
-
-
-
+    private String allAboutHuman;
+    private String findByIdAboutHuman;
+    private String saveAboutHuman;
+    private String updateAboutHuman;
+    private String deleteAboutHuman;
 
     public ClientProperties(){
         try (InputStream input = MainApplication.class.getClassLoader().getResourceAsStream("config.properties")) {
@@ -82,6 +84,12 @@ public class ClientProperties {
             updateEmployee = properties.getProperty("employee.update");
             deleteEmployee = properties.getProperty("employee.del");
             checkEmployee = properties.getProperty("employee.check");
+
+            allAboutHuman = properties.getProperty("aboutHuman.getAll");
+            findByIdAboutHuman = properties.getProperty("aboutHuman.findById");
+            saveAboutHuman = properties.getProperty("aboutHuman.save");
+            updateAboutHuman = properties.getProperty("aboutHuman.update");
+            deleteAboutHuman = properties.getProperty("aboutHuman.del");
         }catch (IOException e){
             e.printStackTrace();
         }

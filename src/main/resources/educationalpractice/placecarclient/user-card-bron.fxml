@@ -13,12 +13,7 @@
                 <Font size="18.0" />
             </font>
         </Text>
-        <Button layoutX="25.0" layoutY="400.0" minHeight="20.0" minWidth="120.0" mnemonicParsing="false" onAction="#btnSaveEditCard" style="-fx-background-radius: 12; -fx-border-color: #545454; -fx-border-radius: 12; -fx-border-style: dashed; -fx-background-color: #F2F2F2;" text="Сохранить" textFill="#545454">
-            <font>
-                <Font size="13.0" />
-            </font>
-        </Button>
-        <Button layoutX="611.0" layoutY="407.0" minHeight="20.0" minWidth="120.0" mnemonicParsing="false" onAction="#btnCancelProfile" style="-fx-background-radius: 12; -fx-border-color: #545454; -fx-border-radius: 12; -fx-border-style: dashed; -fx-background-color: #F2F2F2;" text="Отмена" textFill="#545454">
+        <Button fx:id="btnSaveEditCard" layoutX="25.0" layoutY="400.0" minHeight="20.0" minWidth="120.0" mnemonicParsing="false" onAction="#btnSaveEditCard" style="-fx-background-radius: 12; -fx-border-color: #545454; -fx-border-radius: 12; -fx-border-style: dashed; -fx-background-color: #F2F2F2;" text="Сохранить" textFill="#545454">
             <font>
                 <Font size="13.0" />
             </font>
@@ -47,7 +42,7 @@
             </font>
         </Text>
         <TextField fx:id="strokeNumberCard" layoutX="85.0" layoutY="70.0" prefWidth="180.0" promptText="хххх хххх хххх хххх" style="-fx-background-radius: 12; -fx-border-radius: 12; -fx-border-color: #545454; -fx-border-style: dashed;" />
-        <Button layoutX="205.0" layoutY="400.0" minHeight="20.0" minWidth="120.0" mnemonicParsing="false" onAction="#btnCancelEditCard" style="-fx-background-radius: 12; -fx-border-color: #545454; -fx-border-radius: 12; -fx-border-style: dashed; -fx-background-color: #F2F2F2;" text="Отмена" textFill="#545454">
+        <Button fx:id="btnCancelEditCard" layoutX="205.0" layoutY="400.0" minHeight="20.0" minWidth="120.0" mnemonicParsing="false" onAction="#btnCancelEditCard" style="-fx-background-radius: 12; -fx-border-color: #545454; -fx-border-radius: 12; -fx-border-style: dashed; -fx-background-color: #F2F2F2;" text="Отмена" textFill="#545454">
             <font>
                 <Font size="13.0" />
             </font>

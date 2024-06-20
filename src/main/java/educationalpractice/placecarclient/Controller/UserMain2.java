@@ -6,8 +6,23 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
+
+import static educationalpractice.placecarclient.MainApplication.userAdmin;
 
 public class UserMain2 {
+
+    @FXML
+    private Button btnBronPM;
+
+    @FXML
+    private Button btnCancelPM;
+
+    @FXML
+    private Button btnOpenCar;
+
+    @FXML
+    private Button btnOpenProfile;
 
     @FXML
     private Text greenPm;
@@ -71,6 +86,8 @@ public class UserMain2 {
 
     @FXML
     private Text yellowPm;
+    @FXML
+    private Text whoUser;
 
     @FXML
     void OnNumberPM1(ActionEvent event) {
@@ -80,6 +97,8 @@ public class UserMain2 {
     @FXML
     void btnBronPM(ActionEvent event) {
         MainApplication.showDialog("user-card.fxml","Автостоянка 'PlaceCar'");
+        Stage stage = (Stage) btnBronPM.getScene().getWindow();
+        stage.close();
     }
 
     @FXML
@@ -90,11 +109,18 @@ public class UserMain2 {
     @FXML
     void btnOpenCar(ActionEvent event) {
         MainApplication.showDialog("user-car.fxml","Автостоянка 'PlaceCar'");
+        Stage stage = (Stage) btnOpenCar.getScene().getWindow();
+        stage.close();
     }
 
     @FXML
     void btnOpenProfile(ActionEvent event) {
         MainApplication.showDialog("user-profile.fxml","Автостоянка 'PlaceCar'");
+        Stage stage = (Stage) btnOpenProfile.getScene().getWindow();
+        stage.close();
     }
-
+    @FXML
+    private void initialize() {
+        whoUser.setText(userAdmin.getSurname()+"\n"+userAdmin.getName()+"\n"+userAdmin.getSurname());
+    }
 }

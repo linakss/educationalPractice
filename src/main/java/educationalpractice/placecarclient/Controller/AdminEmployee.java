@@ -1,6 +1,8 @@
 package educationalpractice.placecarclient.Controller;
 import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
+
+import educationalpractice.placecarclient.Entity.AboutHuman;
 import educationalpractice.placecarclient.Entity.Car;
 import educationalpractice.placecarclient.Entity.Employee;
 import educationalpractice.placecarclient.MainApplication;
@@ -25,34 +27,34 @@ import static educationalpractice.placecarclient.MainApplication.userAdmin;
 import static educationalpractice.placecarclient.MainApplication.userInf;
 
 public class AdminEmployee {
-    private final EmployeeServ service = new EmployeeServ();
+    private final AboutHumanServ service = new AboutHumanServ();
     private final ErrorAlertServ alertService = new ErrorAlertServ();
     @Getter
-    private ObservableList<Employee> data = FXCollections.observableArrayList();
+    private ObservableList<AboutHuman> data = FXCollections.observableArrayList();
 
     private boolean addFlag = true;
-    private Employee getSelectionElement() {
-        Employee temp = tableEmployee.getSelectionModel().getSelectedItem();
+    private AboutHuman getSelectionElement() {
+        AboutHuman temp = tableAboutHuman.getSelectionModel().getSelectedItem();
         return temp;
     }
     @FXML
-    private TableView<Employee> tableEmployee;
+    private TableView<AboutHuman> tableAboutHuman;
     @FXML
-    private TableColumn<Employee,String> colFIO;
-    @FXML
-    private TableColumn<Car,String> colGosNumber;
+    private TableColumn<AboutHuman,String> colFIO;
 
     @FXML
-    private TableColumn<Employee,String> colLogin;
+    private TableColumn<AboutHuman,String> colLogin;
 
     @FXML
-    private TableColumn<Employee,String> colNumberPhone;
+    private TableColumn<AboutHuman,String> colNumberPhone;
 
     @FXML
-    private TableColumn<Employee,String> colPassword;
+    private TableColumn<AboutHuman,String> colPassword;
 
     @FXML
-    private TableColumn<Employee,String> colRole;
+    private TableColumn<AboutHuman,String> colRole;
+    @FXML
+    private TableColumn<AboutHuman,String> colGosNumber;
 
     @FXML
     private Text whoUser;
@@ -111,7 +113,8 @@ public class AdminEmployee {
     @FXML
     private void initialize() {
         service.getAll();
-        whoUser.setText(userAdmin.getSurname());
+        ObservableList<AboutHuman> data = FXCollections.observableArrayList(service.getCombinedData());
+        whoUser.setText(userAdmin.getSurname()+"\n"+userAdmin.getName()+"\n"+userAdmin.getSurname());
 //        tableEmployee.setItems(service.getData());
         if (userAdmin.getRole().equals("Администратор") ) { //роль равна админу или охране
             btnAddEmployee.setVisible(true);
@@ -126,13 +129,13 @@ public class AdminEmployee {
         }
         System.out.println("Введенный: "+userInf.getLogin()+" "+userInf.getPassword());
         //связываем поля таблицы со столбцами
-        colFIO.setCellValueFactory(cellData -> Bindings.concat(cellData.getValue().getSurname()," ",cellData.getValue().getName()," ",cellData.getValue().getLastname()," " ));
-        colRole.setCellValueFactory(new PropertyValueFactory<Employee, String>("role"));
-        colNumberPhone.setCellValueFactory(new PropertyValueFactory<Employee, String>("numberPhone"));
-        colLogin.setCellValueFactory(new PropertyValueFactory<Employee, String>("login"));
-        colPassword.setCellValueFactory(new PropertyValueFactory<Employee, String>("password"));
-        colGosNumber.setCellValueFactory(new PropertyValueFactory<Car, String>("gosNumberCar"));
-        tableEmployee.setItems(service.getData());
+        colFIO.setCellValueFactory(new PropertyValueFactory<>("employeeName"));
+        colRole.setCellValueFactory(new PropertyValueFactory<>("employeeRole"));
+        colNumberPhone.setCellValueFactory(new PropertyValueFactory<>("employeeNumberPhone"));
+        colLogin.setCellValueFactory(new PropertyValueFactory<>("employeeLogin"));
+        colPassword.setCellValueFactory(new PropertyValueFactory<>("employeePassword"));
+        colGosNumber.setCellValueFactory(new PropertyValueFactory<>("carGosNumber"));
+        tableAboutHuman.setItems(service.getData());
 
     }
 

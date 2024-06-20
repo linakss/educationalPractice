@@ -10,6 +10,7 @@ import java.util.Objects;
 @Getter
 @Setter
 @NoArgsConstructor
+@Builder
 public class Employee {
     private Long idEmployee; //индивид. номер сотрудника системы в базе
     @NotNull
@@ -18,7 +19,6 @@ public class Employee {
     private String name; //имя сотрудника системы
     @NotNull
     private String surname; //фамилия сотрудника системы
-    private String fio;
     @NotNull
     private String role; //роль сотрудника системы
     @NotNull
@@ -30,7 +30,7 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "login: " + login  +" password: " + password ;
+        return surname+" "+name+" "+lastname;
     }
 
     @Override

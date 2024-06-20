@@ -10,7 +10,7 @@
     <children>
         <Pane layoutX="-14.0" prefHeight="570.0" prefWidth="165.0" style="-fx-background-radius: 18px; -fx-background-color: #A6A6A6;">
             <children>
-                <Button layoutX="28.0" layoutY="145.0" minHeight="20.0" minWidth="120.0" mnemonicParsing="false" onAction="#btnOpenCarUser" style="-fx-background-radius: 12; -fx-border-color: #545454; -fx-border-radius: 12; -fx-border-style: dashed; -fx-background-color: #F2F2F2;" text="Профиль" textFill="#545454">
+                <Button fx:id="btnOpenCarUser" layoutX="28.0" layoutY="175.0" minHeight="20.0" minWidth="120.0" mnemonicParsing="false" onAction="#btnOpenCarUser" style="-fx-background-radius: 12; -fx-border-color: #545454; -fx-border-radius: 12; -fx-border-style: dashed; -fx-background-color: #F2F2F2;" text="Профиль" textFill="#545454">
                     <font>
                         <Font size="13.0" />
                     </font>
@@ -20,17 +20,17 @@
                         <Font size="15.0" />
                     </font>
                 </Text>
-                <Button layoutX="28.0" layoutY="105.0" minHeight="20.0" minWidth="120.0" mnemonicParsing="false" onAction="#btnOpenCarUser" style="-fx-background-radius: 12; -fx-border-color: #545454; -fx-border-radius: 12; -fx-border-style: dashed; -fx-background-color: #F2F2F2;" text="Автомобиль" textFill="#545454">
+                <Button fx:id="btnOpenCarUser" layoutX="28.0" layoutY="135.0" minHeight="20.0" minWidth="120.0" mnemonicParsing="false" onAction="#btnOpenCarUser" style="-fx-background-radius: 12; -fx-border-color: #545454; -fx-border-radius: 12; -fx-border-style: dashed; -fx-background-color: #F2F2F2;" text="Автомобиль" textFill="#545454">
                     <font>
                         <Font size="13.0" />
                     </font>
                 </Button>
-                <Button layoutX="28.0" layoutY="527.0" minHeight="20.0" minWidth="120.0" mnemonicParsing="false" onAction="#btnHelp" style="-fx-background-radius: 12; -fx-border-color: #545454; -fx-border-radius: 12; -fx-border-style: dashed; -fx-background-color: #F2F2F2;" text="Помощь" textFill="#545454">
+                <Button fx:id="btnHelp" layoutX="28.0" layoutY="527.0" minHeight="20.0" minWidth="120.0" mnemonicParsing="false" onAction="#btnHelp" style="-fx-background-radius: 12; -fx-border-color: #545454; -fx-border-radius: 12; -fx-border-style: dashed; -fx-background-color: #F2F2F2;" text="Помощь" textFill="#545454">
                     <font>
                         <Font size="13.0" />
                     </font>
                 </Button>
-            <Button layoutX="28.0" layoutY="65.0" minHeight="20.0" minWidth="120.0" mnemonicParsing="false" onAction="#btnOpenHomeUser" style="-fx-background-radius: 12; -fx-border-color: #545454; -fx-border-radius: 12; -fx-border-style: dashed; -fx-background-color: #F2F2F2;" text="Главная" textFill="#545454">
+            <Button fx:id="btnOpenHomeUser" layoutX="28.0" layoutY="95.0" minHeight="20.0" minWidth="120.0" mnemonicParsing="false" onAction="#btnOpenHomeUser" style="-fx-background-radius: 12; -fx-border-color: #545454; -fx-border-radius: 12; -fx-border-style: dashed; -fx-background-color: #F2F2F2;" text="Главная" textFill="#545454">
                <font>
                   <Font size="13.0" />
                </font>
@@ -137,17 +137,17 @@
             <Font size="16.0" />
          </font>
       </Text>
-      <Button layoutX="200.0" layoutY="480.0" minHeight="20.0" minWidth="120.0" mnemonicParsing="false" onAction="#btnOpenEdtCard" style="-fx-background-radius: 12; -fx-border-color: #545454; -fx-border-radius: 12; -fx-border-style: dashed; -fx-background-color: #F2F2F2;" text="Редактировать" textFill="#545454">
+      <Button fx:id="btnOpenEdtCard" layoutX="200.0" layoutY="480.0" minHeight="20.0" minWidth="120.0" mnemonicParsing="false" onAction="#btnOpenEdtCard" style="-fx-background-radius: 12; -fx-border-color: #545454; -fx-border-radius: 12; -fx-border-style: dashed; -fx-background-color: #F2F2F2;" text="Редактировать" textFill="#545454">
          <font>
             <Font size="13.0" />
          </font>
       </Button>
-      <Button layoutX="350.0" layoutY="480.0" minHeight="20.0" minWidth="120.0" mnemonicParsing="false" onAction="#btnNext" style="-fx-background-radius: 12; -fx-border-color: #545454; -fx-border-radius: 12; -fx-border-style: dashed; -fx-background-color: #F2F2F2;" text="Далее" textFill="#545454">
+      <Button fx:id="btnNext" layoutX="350.0" layoutY="480.0" minHeight="20.0" minWidth="120.0" mnemonicParsing="false" onAction="#btnNext" style="-fx-background-radius: 12; -fx-border-color: #545454; -fx-border-radius: 12; -fx-border-style: dashed; -fx-background-color: #F2F2F2;" text="Далее" textFill="#545454">
          <font>
             <Font size="13.0" />
          </font>
       </Button>
-      <Button layoutX="600.0" layoutY="480.0" minHeight="20.0" minWidth="120.0" mnemonicParsing="false" onAction="#btnCancelBron" style="-fx-background-radius: 12; -fx-border-color: #545454; -fx-border-radius: 12; -fx-border-style: dashed; -fx-background-color: #F2F2F2;" text="Отмена" textFill="#545454">
+      <Button fx:id="btnCancelBron" layoutX="600.0" layoutY="480.0" minHeight="20.0" minWidth="120.0" mnemonicParsing="false" onAction="#btnCancelBron" style="-fx-background-radius: 12; -fx-border-color: #545454; -fx-border-radius: 12; -fx-border-style: dashed; -fx-background-color: #F2F2F2;" text="Отмена" textFill="#545454">
          <font>
             <Font size="13.0" />
          </font>

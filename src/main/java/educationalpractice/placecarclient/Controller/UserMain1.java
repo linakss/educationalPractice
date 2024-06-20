@@ -2,25 +2,42 @@ package educationalpractice.placecarclient.Controller;
 
 import educationalpractice.placecarclient.Entity.PM;
 import educationalpractice.placecarclient.MainApplication;
+import educationalpractice.placecarclient.Service.CarServ;
+import educationalpractice.placecarclient.Service.EmployeeServ;
 import educationalpractice.placecarclient.Service.UserServ;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
+
+import static educationalpractice.placecarclient.MainApplication.userAdmin;
 
 public class UserMain1 {
+
+    @FXML
+    private Button OnNumberPMa;
+
+    @FXML
+    private Button OnNumberPMb;
+
+    @FXML
+    private Button btnCancelRyadPM;
+
+    @FXML
+    private Button btnOpenCar;
+
+    @FXML
+    private Button btnOpenPMs;
+
+    @FXML
+    private Button btnOpenProfile;
 
     @FXML
     private Text greenPm;
 
     @FXML
-    private Button numberPM1;
-
-    @FXML
     private Button numberPM10;
-
-    @FXML
-    private Button numberPM2;
 
     @FXML
     private Button numberPM3;
@@ -99,8 +116,20 @@ public class UserMain1 {
 
     @FXML
     private Text yellowPm;
-    private final UserServ service = new UserServ();
-    private boolean addFlag = true;
+    @FXML
+    private Text whoUser;
+    private final EmployeeServ serviceEmpl = new EmployeeServ();
+
+    @FXML
+    void OnNumberPMa(ActionEvent event) {
+
+    }
+
+    @FXML
+    void OnNumberPMb(ActionEvent event) {
+
+    }
+    private final UserServ serviceUser = new UserServ();
 
     @FXML
     void OnNumberPM1(ActionEvent event) {
@@ -119,16 +148,26 @@ public class UserMain1 {
     @FXML
     void btnOpenCar(ActionEvent event) {
         MainApplication.showDialog("user-car.fxml","Автостоянка 'PlaceCar'");
+        Stage stage = (Stage) btnOpenCar.getScene().getWindow();
+        stage.close();
     }
 
     @FXML
     void btnOpenPMs(ActionEvent event) {
         MainApplication.showDialog("user-main2.fxml","Автостоянка 'PlaceCar'");
+        Stage stage = (Stage) btnOpenPMs.getScene().getWindow();
+        stage.close();
     }
 
     @FXML
     void btnOpenProfile(ActionEvent event) {
         MainApplication.showDialog("user-profile.fxml","Автостоянка 'PlaceCar'");
+        Stage stage = (Stage) btnOpenProfile.getScene().getWindow();
+        stage.close();
     }
-
+    @FXML
+    private void initialize() {
+        serviceEmpl.getAll();
+        whoUser.setText(userAdmin.getSurname()+"\n"+userAdmin.getName()+"\n"+userAdmin.getSurname());
+    }
 }

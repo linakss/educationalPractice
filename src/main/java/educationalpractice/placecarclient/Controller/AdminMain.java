@@ -78,7 +78,7 @@ public class AdminMain {
     }
     @FXML
     private void initialize() {
-        whoUser.setText(userAdmin.getSurname());
+        whoUser.setText(userAdmin.getSurname()+"\n"+userAdmin.getName()+"\n"+userAdmin.getSurname());
         if (userAdmin.getRole().equals("Администратор")) { //роль равна админу или охране
             btnEditPM.setVisible(true);
 

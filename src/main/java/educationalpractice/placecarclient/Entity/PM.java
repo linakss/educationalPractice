@@ -1,15 +1,13 @@
 package educationalpractice.placecarclient.Entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.jetbrains.annotations.NotNull;
 
 @AllArgsConstructor
 @Getter
 @Setter
 @NoArgsConstructor
+@Builder
 public class PM {
     private Long idPM; //индивид. номер парковочного места в базе
 

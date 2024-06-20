@@ -8,6 +8,7 @@ import org.jetbrains.annotations.NotNull;
 @Getter
 @Setter
 @NoArgsConstructor
+@Builder
 public class Car {
     private Long idCar; //индивид. номер машины в базе
     @NotNull
@@ -18,7 +19,6 @@ public class Car {
     private String markCar; //марка машины
     @NotNull
     private String gosNumberCar; //государственнный номер машины
-
     @NotNull
     private User user;
 }
