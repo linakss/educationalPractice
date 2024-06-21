@@ -12,6 +12,9 @@ import lombok.Getter;
 
 import java.lang.reflect.Type;
 import java.util.Comparator;
+import java.util.List;
+
+import static educationalpractice.placecarclient.MainApplication.*;
 
 public class CarServ {
     @Getter
@@ -21,14 +24,11 @@ public class CarServ {
     ClientProperties prop = new ClientProperties();
     private Type dataType = new TypeToken<DataResp<Car>>() {}.getType();
     private Type listType = new TypeToken<ListResp<Car>>() {}.getType();
-    /*private void sort(){
-        data.sort(Comparator.comparing(Car::getSurname));
-    }*/
-
     public void findById(Car data) {
         String temp = http.get(prop.getFindByIdCar() + data.getIdCar());
         DataResp<Car> response = service.getObject(temp, dataType);
         if (response.isSuccess()) {
+            car2 = response.getData();
             this.data.add(response.getData());
         } else {
             throw new RuntimeException(response.getMessage());
@@ -37,7 +37,7 @@ public class CarServ {
     private void sort(){
         data.sort(Comparator.comparing(Car::getIdCar));
     }
-    public void getAll(){
+    public List<Car> getAll(){
         ListResp<Car> data = new ListResp<>();
         data = service.getObject(http.get(prop.getAllCar()),listType);
         if (data.isSuccess()){
@@ -47,11 +47,12 @@ public class CarServ {
         } else {
             throw new RuntimeException(data.getMessage());
         }
-    }
+        return data.getData();}
     public void add(Car data){
-        String temp = http.post(prop.getSaveCard(), service.getJson(data));
+        String temp = http.post(prop.getSaveCar(), service.getJson(data));
         DataResp<Car> response = service.getObject(temp, dataType);
         if (response.isSuccess()){
+            car1 = response.getData();
             this.data.add(response.getData());
             sort();
         }else{

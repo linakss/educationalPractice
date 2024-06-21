@@ -13,6 +13,10 @@ import lombok.Getter;
 
 import java.lang.reflect.Type;
 import java.util.Comparator;
+import java.util.List;
+
+import static educationalpractice.placecarclient.MainApplication.empl;
+import static educationalpractice.placecarclient.MainApplication.emporio;
 
 public class EmployeeServ {
     @Getter
@@ -28,6 +32,9 @@ public class EmployeeServ {
         DataResp<Employee> response = service.getObject(temp, dataType);
         if (response.isSuccess()) {
             this.data.add(response.getData());
+            empl.setSurname(data.getSurname());
+            empl.setLastname(data.getLastname());
+            empl.setName(data.getName());
         } else {
             throw new RuntimeException(response.getMessage());
         }
@@ -37,22 +44,25 @@ public class EmployeeServ {
         data.sort(Comparator.comparing(Employee::getSurname));
     }
 
-    public void getAll() {
+    public List<Employee> getAll() {
         ListResp<Employee> data = new ListResp<>();
         data = service.getObject(http.get(prop.getAllEmployee()), listType);
         if (data.isSuccess()) {
             this.data.addAll(data.getData());
+            emporio.setLastname(data.getData().toString());
             sort();
             this.data.forEach(System.out::println);
         } else {
             throw new RuntimeException(data.getMessage());
         }
+        return data.getData();
     }
     public void add(Employee data) {
         String temp = http.post(prop.getSaveEmployee(), service.getJson(data));
         DataResp<Employee> response = service.getObject(temp, dataType);
         if (response.isSuccess()) {
             this.data.add(response.getData());
+            emporio.setRole(data.getRole());
             sort();
         } else {
             throw new RuntimeException(response.getMessage());

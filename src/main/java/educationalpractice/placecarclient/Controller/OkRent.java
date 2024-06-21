@@ -9,12 +9,10 @@ import javafx.stage.Stage;
 public class OkRent {
     @FXML
     private Button btnOKRent;
-
     @FXML
     void btnOKRent(ActionEvent event) {
         MainApplication.showDialog("user-main1.fxml","Автостоянка 'PlaceCar'");
         Stage stage = (Stage) btnOKRent.getScene().getWindow();
         stage.close();
     }
-
 }

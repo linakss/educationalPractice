@@ -13,40 +13,42 @@ import java.util.Objects;
 @Builder
 public class Employee {
     private Long idEmployee; //индивид. номер сотрудника системы в базе
-    @NotNull
+    //@NotNull
     private String lastname; //отчество сотрудника системы
-    @NotNull
+    //@NotNull
     private String name; //имя сотрудника системы
-    @NotNull
+    //@NotNull
     private String surname; //фамилия сотрудника системы
-    @NotNull
+    //@NotNull
     private String role; //роль сотрудника системы
-    @NotNull
+    //@NotNull
     private String numberPhone; // номер телефона сотрудника
-    @NotNull
+    //@NotNull
     private String login; //логин сотрудника системы
-    @NotNull
+    //@NotNull
     private String password; //пароль сотрудника системы
+    private Car car;
+
+    public String getFullName() {
+        return String.format("%s %s %s", surname, name, lastname);
+    }
+    public String getPhoneNumber() {
+        return String.format("%s",numberPhone);
+    }
 
     @Override
     public String toString() {
-        return surname+" "+name+" "+lastname;
+        return surname + ' ' + name + ' ' +
+                lastname + ' ' + role;
     }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Employee that)) return false;
         return Objects.equals(getLogin(), that.getLogin()) && Objects.equals(getPassword(), that.getPassword());
     }
-
     @Override
     public int hashCode() {
         return Objects.hash(getLogin(), getPassword());
     }
-
-
-
-
-
 }

@@ -1,5 +1,5 @@
 package educationalpractice.placecarclient.Service;
-
+import static educationalpractice.placecarclient.MainApplication.forFind;
 import com.google.gson.reflect.TypeToken;
 import educationalpractice.placecarclient.Entity.User;
 import educationalpractice.placecarclient.Entity.User;
@@ -13,6 +13,7 @@ import lombok.Getter;
 
 import java.lang.reflect.Type;
 import java.util.Comparator;
+import java.util.List;
 
 public class UserServ {
     @Getter
@@ -24,19 +25,20 @@ public class UserServ {
     private Type listType = new TypeToken<ListResp<User>>() {}.getType();
     public void findById(User data) {
         String temp = http.get(prop.getFindByIdUser() + data.getIdUser());
+        System.out.println(temp);
         DataResp<User> response = service.getObject(temp, dataType);
+        System.out.println(response);
         if (response.isSuccess()) {
+            forFind = response.getData();
             this.data.add(response.getData());
         } else {
             throw new RuntimeException(response.getMessage());
         }
     }
-
     private void sort(){
         data.sort(Comparator.comparing(User::getIdUser));
     }
-
-    public void getAll() {
+    public List<User> getAll() {
         ListResp<User> data = new ListResp<>();
         data = service.getObject(http.get(prop.getAllUser()), listType);
         if (data.isSuccess()) {
@@ -46,6 +48,7 @@ public class UserServ {
         } else {
             throw new RuntimeException(data.getMessage());
         }
+        return data.getData();
     }
     public void add(User data) {
         String temp = http.post(prop.getSaveUser(), service.getJson(data));

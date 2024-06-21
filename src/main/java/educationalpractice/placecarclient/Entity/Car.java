@@ -21,4 +21,16 @@ public class Car {
     private String gosNumberCar; //государственнный номер машины
     @NotNull
     private User user;
+    public String getUserEmployeeFullName() {
+        return user.getEmployeeFullName();
+    }
+
+    public String getUserEmployeePhoneNumber() {
+        return user.getEmployeePhone();
+    }
+    @Override
+    public String toString() {
+        return idCar+" "+ colorCar +
+                " " + modelCar + " "+ markCar +" "+ gosNumberCar +" "+ user ;
+    }
 }

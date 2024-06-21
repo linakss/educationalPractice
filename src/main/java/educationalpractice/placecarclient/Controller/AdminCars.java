@@ -1,12 +1,9 @@
 package educationalpractice.placecarclient.Controller;
 
-import educationalpractice.placecarclient.Entity.AboutHuman;
 import educationalpractice.placecarclient.Entity.Car;
-import educationalpractice.placecarclient.Entity.Employee;
 import educationalpractice.placecarclient.Entity.User;
 import educationalpractice.placecarclient.MainApplication;
 import educationalpractice.placecarclient.Service.*;
-import javafx.beans.binding.Bindings;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -18,71 +15,75 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.util.Optional;
+
 import static educationalpractice.placecarclient.MainApplication.userAdmin;
 
 public class AdminCars {
-    AboutHumanServ serv = new AboutHumanServ();
-    ErrorAlertServ alertServ = new ErrorAlertServ();
+
     @FXML
     private Button btnAddCar;
-
     @FXML
     private Button btnCancelCar;
-
     @FXML
     private Button btnDeleteCar;
-
     @FXML
     private Button btnEditCar;
-
     @FXML
-    private TableColumn<AboutHuman,String> colColorAuto;
-
+    private TableColumn<Car,String> colColorAuto;
     @FXML
-    private TableColumn<Employee, String> colFIO;
-
+    private TableColumn<User, String> colFIO;
     @FXML
-    private TableColumn<AboutHuman,String> colGosNumber;
-
+    private TableColumn<Car,String> colGosNumber;
     @FXML
-    private TableColumn<AboutHuman,String> colMarkAuto;
-
+    private TableColumn<Car,String> colMarkAuto;
     @FXML
-    private TableColumn<AboutHuman,String> colModelAuto;
-
+    private TableColumn<Car,String> colModelAuto;
     @FXML
-    private TableColumn<AboutHuman, String> colNumberPhone;
-
+    private TableColumn<User, String> colNumberPhone;
     @FXML
-    private TableView<AboutHuman> tableCars;
+    private TableView<Car> tableCars;
     @FXML
     private Button btnOpenEmployee;
     @FXML
     private Text whoUser;
     @FXML
     private Button btnOpenHome;
+    CarServ serv = new CarServ();
+    UserServ userServ = new UserServ();
+    ErrorAlertServ alertServ = new ErrorAlertServ();
     private boolean addFlag = true;
+    private Optional<Car> cars = Optional.empty();
 
-    @FXML
-    void onMouseClickDataList(MouseEvent event) {
-        if (event.getButton().equals(MouseButton.PRIMARY)){
-            if (event.getClickCount() == 2){
-                addFlag = false;
-                AboutHuman temp = getSelectionElement();
+    public void setCar(Optional<Car> cars){
+        try{
+            this.cars = cars;
+            if (cars.isPresent()) {
+                if (cars.get().getIdCar() != null)
+                    serv.update(cars.get(), tableCars.getSelectionModel().getSelectedItem());
+                else serv.add(cars.get());
             }
+        }catch (Exception e){
+            alertServ.addVoid(e);
         }
     }
-
-    private AboutHuman getSelectionElement() {
-        AboutHuman temp = tableCars.getSelectionModel().getSelectedItem();
+    private Car getSelectionElement() {
+        Car temp = tableCars.getSelectionModel().getSelectedItem();
         return temp;
     }
 
     @FXML
     void btnAddCar(ActionEvent event) {
-        MainApplication.showDialog("admin-cars-edit.fxml","Добавить машину в базу");
+        try {
+            Optional<Car> cars = Optional.empty();
+            MainApplication.showBookDialog(cars);
+        }catch (Exception e){alertServ.didntStart(e);}    }
+    @FXML
+    void btnEditCar(ActionEvent event){
+        try{
+            Optional<Car> cars = Optional.of(getSelectionElement());
+            MainApplication.showBookDialog(cars);}catch (Exception e){alertServ.didntStart(e);}
     }
-
     @FXML
     void btnCancelCar(ActionEvent event) {
         tableCars.editableProperty().setValue(false);
@@ -92,24 +93,14 @@ public class AdminCars {
     void btnDeleteCar(ActionEvent event) {
         try {serv.delete(getSelectionElement());
         }catch (Exception e){
-            alertServ.deleteVoid(e);
-        }
-
-
+            alertServ.deleteVoid(e);}
     }
-
-    @FXML
-    void btnEditCar(ActionEvent event) {
-        MainApplication.showDialog("admin-cars-edit.fxml","Редактирование авто");
-    }
-
     @FXML
     void btnOpenEmployee(ActionEvent event) {
         MainApplication.showDialog("admin-employee.fxml","Сотрудники");
         Stage stage = (Stage) btnOpenEmployee.getScene().getWindow();
         stage.close();
     }
-
     @FXML
     void btnOpenHome(ActionEvent event) {
         MainApplication.showDialog("admin-main.fxml","Главная");
@@ -130,16 +121,15 @@ public class AdminCars {
             btnCancelCar.setVisible(false);
             btnAddCar.setVisible(false);
         }
-
         serv.getAll();
-
-        //связываем поля таблицы со столбцами
-        colFIO.setCellValueFactory(new PropertyValueFactory<>("employeeName"));
-        colColorAuto.setCellValueFactory(new PropertyValueFactory<>("carColor"));
-        colModelAuto.setCellValueFactory(new PropertyValueFactory<>("carModel"));
-        colMarkAuto.setCellValueFactory(new PropertyValueFactory<>("carMark"));
-        colGosNumber.setCellValueFactory(new PropertyValueFactory<>("carGosNumber"));
-        colNumberPhone.setCellValueFactory(new PropertyValueFactory<>("employeeNumberPhone"));
+        userServ.getAll();
+        colFIO.setCellValueFactory(new PropertyValueFactory<>("userEmployeeFullName"));
+        colColorAuto.setCellValueFactory(new PropertyValueFactory<>("colorCar"));
+        colModelAuto.setCellValueFactory(new PropertyValueFactory<>("modelCar"));
+        colMarkAuto.setCellValueFactory(new PropertyValueFactory<>("markCar"));
+        colGosNumber.setCellValueFactory(new PropertyValueFactory<>("gosNumberCar"));
+        colNumberPhone.setCellValueFactory(new PropertyValueFactory<>("userEmployeePhoneNumber"));
         tableCars.setItems(serv.getData());
+
     }
 }

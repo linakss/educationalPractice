@@ -48,6 +48,7 @@ public class ClientProperties {
     private String updateAboutHuman;
     private String deleteAboutHuman;
 
+
     public ClientProperties(){
         try (InputStream input = MainApplication.class.getClassLoader().getResourceAsStream("config.properties")) {
             System.out.println(input);

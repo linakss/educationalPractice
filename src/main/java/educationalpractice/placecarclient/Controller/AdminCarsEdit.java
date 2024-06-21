@@ -1,17 +1,13 @@
 package educationalpractice.placecarclient.Controller;
 
-import educationalpractice.placecarclient.Entity.AboutHuman;
 import educationalpractice.placecarclient.Entity.Car;
-import educationalpractice.placecarclient.Entity.Employee;
-import educationalpractice.placecarclient.Service.AboutHumanServ;
-import educationalpractice.placecarclient.Service.EmployeeServ;
-import educationalpractice.placecarclient.Service.ErrorAlertServ;
+import educationalpractice.placecarclient.Entity.User;
+import educationalpractice.placecarclient.Service.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import lombok.Getter;
 import lombok.Setter;
@@ -20,76 +16,68 @@ import java.util.Optional;
 
 public class AdminCarsEdit {
     @FXML
+    private ComboBox<User> comboHumanCar;
+    @FXML
     private Button btnCancelEditCar;
-
     @FXML
     private Button btnSaveEditCar;
-
-    @FXML
-    private ComboBox<AboutHuman> comboHumanCar;
-
     @FXML
     private TextField strokeColorCar;
-
     @FXML
     private TextField strokeGosNumberCar;
-
     @FXML
     private TextField strokeMarkCar;
-
     @FXML
     private TextField strokeModelCar;
     private boolean addFlag = true;
-
     private final ErrorAlertServ alertService = new ErrorAlertServ();
-    private final AboutHumanServ service = new AboutHumanServ ();
+    private final UserServ service = new UserServ ();
+    private final CarServ servCar= new CarServ();
     @Setter
     @Getter
-    private Optional<Car> car;
-
-
+    private Optional<Car> cars;
     @FXML
     private void initialize() {
         service.getAll();
+        servCar.getAll();
         comboHumanCar.setItems(service.getData());
-
     }
-
     @FXML
     void btnCancelEditCar(ActionEvent event) {
         Stage stage = (Stage) btnCancelEditCar.getScene().getWindow();
         stage.close();
     }
-
     @FXML
     void btnSaveEditCar(ActionEvent event) {
-        try {
-            AboutHuman car = new AboutHuman();
-            car.setLesson(textLesson.getText());
-            car.setSpecial(comboboxSpecial.getSelectionModel().getSelectedItem());
-            if (addFlag) {
-                service.add(car);
-            } else {
-                car.setId(getSelectionElement().getId());
-                service.update(car, getSelectionElement());
+        try{
+            Car temp =   Car.builder()
+                    .markCar(strokeMarkCar.getText())
+                    .colorCar(strokeColorCar.getText())
+                    .gosNumberCar(strokeGosNumberCar.getText())
+                    .modelCar(strokeModelCar.getText())
+                    .user(comboHumanCar.getSelectionModel().getSelectedItem())
+                    .build();
+            if (cars.isEmpty()){
+                cars = Optional.of(temp);}
+            else {
+                temp.setIdCar(cars.get().getIdCar());
             }
-            textLesson.clear();
+            System.out.println(temp);
+            cars = Optional.of(temp);
         }catch (Exception e){
-            alertService.addVoid(e);
+            //alertService.addVoid(e);
+            e.printStackTrace();
         }
-        Stage stage = (Stage) saveLesson.getScene().getWindow();
+        Stage stage = (Stage) btnSaveEditCar.getScene().getWindow();
         stage.close();
-
-
-//        Car temp = Car.builder().colorCar(strokeColorCar.getText())
-//                .gosNumberCar(strokeGosNumberCar.getText())
-//                .markCar(strokeMarkCar.getText())
-//                .modelCar(strokeModelCar.getText())
-//                .user(comboHumanCar.getSelectionModel().getSelectedItem().getUser()) // без .getUser() не работает почему?
-//                .build();
-//        car = Optional.of(temp);
-//        Stage stage = (Stage) btnSaveEditCar.getScene().getWindow();
-//        System.out.println(temp);
     }
-
+    public  void  start() {
+        if (cars.isPresent()) {
+            strokeMarkCar.setText(cars.get().getMarkCar());
+            strokeModelCar.setText(cars.get().getModelCar());
+            strokeGosNumberCar.setText(cars.get().getGosNumberCar());
+            strokeColorCar.setText(cars.get().getColorCar());
+            comboHumanCar.setValue(cars.get().getUser());
+        }
+    }
 }

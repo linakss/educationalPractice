@@ -20,9 +20,7 @@ public class HttpServ {
             if (!response.isSuccessful()) {
                 throw new IOException("Зaпpoc к cepвepy не был успешен: " +
                         response.code() + " " + response.message());
-
             }
-
             result = response.body().string();
         } catch (IOException e) {
             e.printStackTrace();
@@ -37,7 +35,6 @@ public class HttpServ {
         Request.Builder requestBuilder = new Request.Builder().url(url).post(body);
         Request request = requestBuilder.build();
         try (Response response = client.newCall(request).execute()) {
-
             if (!response.isSuccessful()) {
                 throw new IOException("Запрос к серверу не был успешен: " + response.code() + " " + response.message());
             }
@@ -52,10 +49,9 @@ public class HttpServ {
     public String put(String url, String data){
         String result = "";
         RequestBody body = RequestBody.create(data, JSON);
-        Request.Builder requestBuilder = new Request.Builder().url(url).post(body);
+        Request.Builder requestBuilder = new Request.Builder().url(url).put(body);
         Request request = requestBuilder.build();
         try (Response response = client.newCall(request).execute()) {
-
             if (!response.isSuccessful()) {
                 throw new IOException("Запрос к серверу не был успешен: " + response.code() + " " + response.message());
             }
@@ -66,7 +62,6 @@ public class HttpServ {
             return result;
         }
     }
-
     public String delete(String url, Long id){
         String result = "";
         Request.Builder requestBuild = new Request.Builder().url(url + id).delete();
@@ -74,7 +69,6 @@ public class HttpServ {
         try (Response response = client.newCall(request).execute()) {
             if (!response.isSuccessful()) {
                 throw new IOException("Запрос к серверу не был успешен: " + response.code() + " " + response.message());
-
             }
             result = response.body().string();
         }catch (IOException e) {
@@ -83,6 +77,4 @@ public class HttpServ {
             return  result;
         }
     }
-
-
 }

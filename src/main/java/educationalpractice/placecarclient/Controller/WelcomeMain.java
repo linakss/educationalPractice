@@ -13,28 +13,27 @@ import javafx.stage.Stage;
 import static educationalpractice.placecarclient.MainApplication.*;
 
 public class WelcomeMain {
-    ErrorAlertServ alertService = new ErrorAlertServ();
-    SignInServ service = new SignInServ();
-
     @FXML
     private TextField login;
-
     @FXML
     private TextField password;
     @FXML
     private Button btnSignIn;
-
+    ErrorAlertServ alertService = new ErrorAlertServ();
+    SignInServ service = new SignInServ();
     @FXML
     void btnHelp(ActionEvent event) {
         MainApplication.showDialog("help.fxml","Помощь");
     }
-
     @FXML
     void btnSignIn(ActionEvent event) {
         try {
             userInf.setLogin(login.getText());
             userInf.setPassword(password.getText());
+//            aboutHumanUser.setLogin(login.getText());
+//            aboutHumanUser.setPassword(password.getText());
             sign.checkEmployeeForAdmin(userInf);
+            //sign.checkHumanForAdmin(aboutHumanUser);
         }catch (Exception e){
             System.out.println(e);
             alertService.didntStart(e);
@@ -44,13 +43,8 @@ public class WelcomeMain {
     }
 
     @FXML
-    void strokeLogin(ActionEvent event) {
-    }
-
+    void strokeLogin(ActionEvent event) {}
     @FXML
-    void strokePassword(ActionEvent event) {
-
-    }
-
+    void strokePassword(ActionEvent event) {}
 
 }

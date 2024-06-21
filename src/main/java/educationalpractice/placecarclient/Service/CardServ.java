@@ -11,6 +11,7 @@ import educationalpractice.placecarclient.Response.ListResp;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import lombok.Getter;
+import static educationalpractice.placecarclient.MainApplication.*;
 
 import java.lang.reflect.Type;
 import java.util.Comparator;
@@ -28,6 +29,7 @@ public class CardServ {
         String temp = http.get(prop.getFindByIdCard() + data.getIdCard());
         DataResp<Card> response = service.getObject(temp, dataType);
         if (response.isSuccess()) {
+            cardFind = response.getData();
             this.data.add(response.getData());
         } else {
             throw new RuntimeException(response.getMessage());
@@ -54,6 +56,7 @@ public class CardServ {
         if (response.isSuccess()) {
             this.data.add(response.getData());
             sort();
+            addCardData = response.getData();
         } else {
             throw new RuntimeException(response.getMessage());
         }
@@ -82,5 +85,4 @@ public class CardServ {
             throw new RuntimeException(response.getMessage());
         }
     }
-
 }

@@ -19,7 +19,7 @@
                 <Font size="13.0" />
             </font>
         </Button>
-        <Button layoutX="611.0" layoutY="407.0" minHeight="20.0" minWidth="120.0" mnemonicParsing="false" onAction="#btnCancelProfile" style="-fx-background-radius: 12; -fx-border-color: #545454; -fx-border-radius: 12; -fx-border-style: dashed; -fx-background-color: #F2F2F2;" text="Отмена" textFill="#545454">
+        <Button layoutX="611.0" layoutY="407.0" minHeight="20.0" minWidth="120.0" mnemonicParsing="false" onAction="#btnCancelEditCar" style="-fx-background-radius: 12; -fx-border-color: #545454; -fx-border-radius: 12; -fx-border-style: dashed; -fx-background-color: #F2F2F2;" text="Отмена" textFill="#545454">
             <font>
                 <Font size="13.0" />
             </font>

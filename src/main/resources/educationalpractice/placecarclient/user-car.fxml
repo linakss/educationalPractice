@@ -82,7 +82,7 @@
                 <Font size="16.0" />
             </font>
         </Text>
-        <Text fx:id="txtPMJProfile" fill="#545454" layoutX="515.0" layoutY="370.0" strokeType="OUTSIDE" strokeWidth="0.0" text="от 1 до 10">
+        <Text fx:id="txtPMNumberProfile" fill="#545454" layoutX="515.0" layoutY="370.0" strokeType="OUTSIDE" strokeWidth="0.0" text="от 1 до 10">
             <font>
                 <Font size="16.0" />
             </font>
@@ -92,12 +92,12 @@
                 <Font size="16.0" />
             </font>
         </Text>
-        <Text fx:id="txtLastWorkProfile" fill="#545454" layoutX="515.0" layoutY="340.0" strokeType="OUTSIDE" strokeWidth="0.0" text="от A до Z">
+        <Text fx:id="txtLetterPM" fill="#545454" layoutX="515.0" layoutY="340.0" strokeType="OUTSIDE" strokeWidth="0.0" text="от A до Z">
             <font>
                 <Font size="16.0" />
             </font>
         </Text>
-        <Text fx:id="txtPMJProfile1" fill="#545454" layoutX="161.0" layoutY="551.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*ваши данные может изменить только администратор">
+        <Text fill="#545454" layoutX="161.0" layoutY="551.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*ваши данные может изменить только администратор">
             <font>
                 <Font size="14.0" />
             </font>
@@ -112,7 +112,7 @@
             <Font size="16.0" />
          </font>
       </Text>
-      <Text fx:id="txtPMJProfile2" fill="#545454" layoutX="515.0" layoutY="400.0" strokeType="OUTSIDE" strokeWidth="0.0" text="6 или 8 руб/мин">
+      <Text fx:id="txtPMPriceProfile" fill="#545454" layoutX="515.0" layoutY="400.0" strokeType="OUTSIDE" strokeWidth="0.0" text="6 или 8 руб/мин">
          <font>
             <Font size="16.0" />
          </font>

@@ -13,87 +13,57 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+
+import static educationalpractice.placecarclient.MainApplication.idPMSer;
 import static educationalpractice.placecarclient.MainApplication.userAdmin;
 
 public class AdminMain {
     private final PMServ service = new PMServ();
     @FXML
     private AnchorPane tableContainer; // Это AnchorPane из вашего FXML файла
-
-    @FXML
-    private Button btnEditPM;
-
     @FXML
     public static Button btnEditPMColor;
-
-
-
     @FXML
     private Text textCar;
-
     @FXML
     private Text textEntryDeparture;
-
     @FXML
     private Text textFIO;
-
     @FXML
     private Text textNumberCar;
-
     @FXML
     private Text textNumberPhone;
     @FXML
     private Button btnOpenCars;
-
     @FXML
     private Button btnOpenEmployee;
     @FXML
     private Text whoUser;
-
-//    Places [] place = new Places[10];
-//    place [0]= new Places(0,0);
     @FXML
-    void btnEditPM(ActionEvent event) {
-        MainApplication.showDialog("admin-main-edit.fxml","Автостоянка 'PlaceCar'");
-    }
-
-//    @FXML
-//    void btnEditPMColor(ActionEvent event) {
-//
-//    }
-
-
-    @FXML
-    void btnOpenCars(ActionEvent event) {
-        MainApplication.showDialog("admin-cars.fxml","Автостоянка 'PlaceCar'");
+    void btnOpenCars(ActionEvent event) throws IOException {
+        MainApplication.start2("Автостоянка 'PlaceCar'");
         Stage stage = (Stage) btnOpenCars.getScene().getWindow();
         stage.close();
     }
-
     @FXML
-    void btnOpenEmployee(ActionEvent event) {
-        MainApplication.showDialog("admin-employee.fxml","Автостоянка 'PlaceCar'");
+    void btnOpenEmployee(ActionEvent event) throws IOException{
+        MainApplication.start3("Автостоянка 'PlaceCar'");
         Stage stage = (Stage) btnOpenEmployee.getScene().getWindow();
         stage.close();
     }
     @FXML
     private void initialize() {
         whoUser.setText(userAdmin.getSurname()+"\n"+userAdmin.getName()+"\n"+userAdmin.getSurname());
-        if (userAdmin.getRole().equals("Администратор")) { //роль равна админу или охране
-            btnEditPM.setVisible(true);
-
-        } else {
-            btnEditPM.setVisible(false);
-
+        try {
+            textFIO.setText(idPMSer.getUser().getEmployee().getName()+" "+idPMSer.getUser().getEmployee().getSurname());
+        }catch (Exception e){
+            System.out.println("Данные пока пусты");
         }
-
-       Places gridPanelClass = new Places();
+        Places gridPanelClass = new Places();
         GridPane gridPanel = gridPanelClass.createGridPanel();
         gridPanel.setLayoutX(-350); // Задает положение по оси X
         gridPanel.setLayoutY(0); // Задает положение по оси Y
+        tableContainer.getChildren().add(gridPanel);}
 
-        tableContainer.getChildren().add(gridPanel);
-
-
-    }
 }

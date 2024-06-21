@@ -29,23 +29,9 @@ public class PMServ {
     }.getType();
     Places[] place1 = new Places[10];
     Places[] place2 = new Places[10];
-
-
-
-    public void findById(PM data) {
-        String temp = http.get(prop.getFindByIdPm() + data.getIdPM());
-        DataResp<PM> response = service.getObject(temp, dataType);
-        if (response.isSuccess()) {
-            this.data.add(response.getData());
-        } else {
-            throw new RuntimeException(response.getMessage());
-        }
-    }
-
     private void sort(){
         data.sort(Comparator.comparing(PM::getStatusPM));
     }
-
     public List<PM> getAll() {
         ListResp<PM> data = new ListResp<>();
         data = service.getObject(http.get(prop.getAllPm()), listType);
@@ -56,7 +42,6 @@ public class PMServ {
         } else {
             throw new RuntimeException(data.getMessage());
         }
-
         return data.getData();
     }
     public void add(PM data) {
@@ -94,32 +79,14 @@ public class PMServ {
         }
     }
 
-//    public void delete2(PM data){
-//        String temp = http.delete(prop.getDeletePm(), data.getRyadPM(), Long.valueOf(data.getNumberPM()));
-//        BaseResp response = service.getObject(temp,BaseResp.class);
-//        if (response.isSuccess()){
-//            this.data.remove(data);
-//        }else {
-//            throw new RuntimeException(response.getMessage());
-//        }
-//    }
-
-
     public void checkUserData(PM data) {
         String temp = http.get(prop.getCheckPm() + data.getRyadPM() + "&numberPM=" + data.getNumberPM());
         DataResp<PM> response = service.getObject(temp, dataType);
         if (response.isSuccess()) {
-
             idPMSer=response.getData();
+            System.out.println(idPMSer);
         } else {
-
             throw new RuntimeException(response.getMessage());
-
-        }
-
-
-    }
-
-
+        }}
 
 }

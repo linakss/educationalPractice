@@ -18,13 +18,24 @@ public class User {
     private String timeEntry; //Время въезда
     private String timeDeparture; //Время выезда
     private Employee employee;
-    private List<Card> cardList;
-    private List<Car> carList;
-    private List<PM> pmList;
     private String lastPlaceOfWork; //последнее место работы юзера
     private String permanentResidence;//постоянное место жительства юзера
+    public String getEmployeeFullName() {
+        if (employee != null) {
+            return employee.getFullName();
+        } else {
+            return "Данные отсутствуют";
+        }
+    }
+    public String getEmployeePhone() {
+        if (employee != null) {
+            return employee.getPhoneNumber();
+        } else {
+            return "Данные отсутствуют";
+        }
+    }
     @Override
     public String toString() {
-        return "";
+        return  " "+employee+'\'';
     }
 }

@@ -12,7 +12,7 @@
             <Font size="18.0" />
         </font>
     </Text>
-    <Button layoutX="140.0" layoutY="287.0" minHeight="20.0" minWidth="120.0" mnemonicParsing="false" onAction="#btnOk" style="-fx-background-radius: 12; -fx-border-color: #545454; -fx-border-radius: 12; -fx-border-style: dashed; -fx-background-color: #F2F2F2;" text="хорошо" textFill="#545454">
+    <Button fx:id="btnOk" layoutX="140.0" layoutY="287.0" minHeight="20.0" minWidth="120.0" mnemonicParsing="false" onAction="#btnOk" style="-fx-background-radius: 12; -fx-border-color: #545454; -fx-border-radius: 12; -fx-border-style: dashed; -fx-background-color: #F2F2F2;" text="хорошо" textFill="#545454">
         <font>
             <Font size="13.0" />
         </font>

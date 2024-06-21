@@ -11,10 +11,8 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 
 //adminimport static educationalpractice.placecarclient.MainApplication.userAdmin;
-import static educationalpractice.placecarclient.MainApplication.userAdmin;
 //import static educationalpractice.placecarclient.MainApplication.userSecurity;
-import static educationalpractice.placecarclient.MainApplication.userInf;
-
+import static educationalpractice.placecarclient.MainApplication.*;
 public class SignInServ {
     @Getter
     private ObservableList<Employee> data = FXCollections.observableArrayList();
@@ -26,24 +24,12 @@ public class SignInServ {
     }.getType();
     private Type listType = new TypeToken<ListResp<Employee>>() {
     }.getType();
-
-//    public void add(Employee data){
-//        String temp = http.post(prop.getSaveEmployee(), service.getJson(data));
-//        DataResp<Employee> response = service.getObject(temp, dataType);
-//        if (response.isSuccess()){
-//            this.data.add(response.getData());
-//        }else{
-//            throw new RuntimeException(response.getMessage());
-//        }
-//    }
-
     public Employee checkEmployeeForAdmin(Employee data) throws IOException {
         String temp = http.get(prop.getCheckEmployee() + "?login="+data.getLogin()+"&password="+data.getPassword());
-
         DataResp<Employee> response = service.getObject(temp, dataType);
-
         if (response.isSuccess()){
             Employee user = response.getData();
+            employeeStat = response.getData();
             if (user.getRole().equals("Администратор") || user.getRole().equals("Охранник")){
                 userAdmin=user;
                 MainApplication.startAdmin("Главная");}
@@ -56,4 +42,5 @@ public class SignInServ {
         }
         return null;
     }
+
 }

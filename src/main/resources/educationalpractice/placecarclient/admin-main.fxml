@@ -32,36 +32,26 @@
             <Font size="18.0" />
          </font>
       </Text>
-      <Button fx:id="btnEditPMColor" layoutX="177.0" layoutY="497.0" minHeight="20.0" minWidth="120.0" mnemonicParsing="false" style="-fx-background-radius: 12; -fx-border-color: #545454; -fx-border-radius: 12; -fx-border-style: dashed; -fx-background-color: #F2F2F2;" text="Въезд/Выезд" textFill="#545454">
-         <font>
-            <Font size="13.0" />
-         </font>
-      </Button>
-      <Text fill="#545454" layoutX="176.0" layoutY="449.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ABCDEFJKOPTUVWXY - 8 руб/мин">
+      <Text fill="#545454" layoutX="613.0" layoutY="465.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ABCDEFJKOPTUVWXY - 8 руб/мин">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Text fill="#545454" layoutX="198.0" layoutY="467.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GHILMNQRS - 5 руб/мин">
+      <Text fill="#545454" layoutX="635.0" layoutY="483.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GHILMNQRS - 5 руб/мин">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Text fill="#545454" layoutX="590.0" layoutY="449.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Информация о ПМ:">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Text>
-      <Text fx:id="textFIO" fill="#545454" layoutX="592.0" layoutY="469.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Фамилия Имя Отчество гостя" />
-      <Text fx:id="textCar" fill="#545454" layoutX="592.0" layoutY="486.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Автомобиль гостя" />
-      <Text fx:id="textNumberCar" fill="#545454" layoutX="592.0" layoutY="503.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Гос. номер автомобиля" />
-      <Text fx:id="textNumberPhone" fill="#545454" layoutX="592.0" layoutY="521.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Рабочий номер телефона" />
-      <Text fx:id="textEntryDeparture" fill="#545454" layoutX="592.0" layoutY="539.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Въезд/Выезд гостя" />
-      <Button fx:id="btnEditPM" layoutX="320.0" layoutY="497.0" minHeight="20.0" minWidth="120.0" mnemonicParsing="false" onAction="#btnEditPM" style="-fx-background-radius: 12; -fx-border-color: #545454; -fx-border-radius: 12; -fx-border-style: dashed; -fx-background-color: #F2F2F2;" text="Редактировать" textFill="#545454">
-         <font>
-            <Font size="13.0" />
-         </font>
-      </Button>
       <AnchorPane fx:id="tableContainer" layoutX="523.0" layoutY="46.0" prefHeight="360.0" prefWidth="305.0" />
+      <Text fill="#545454" layoutX="178.0" layoutY="438.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Информация о ПМ:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text fx:id="textFIO" fill="#545454" layoutX="180.0" layoutY="458.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Фамилия Имя Отчество гостя" />
+      <Text fx:id="textCar" fill="#545454" layoutX="180.0" layoutY="475.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Автомобиль гостя" />
+      <Text fx:id="textNumberCar" fill="#545454" layoutX="180.0" layoutY="492.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Гос. номер автомобиля" />
+      <Text fx:id="textNumberPhone" fill="#545454" layoutX="180.0" layoutY="510.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Рабочий номер телефона" />
+      <Text fx:id="textEntryDeparture" fill="#545454" layoutX="180.0" layoutY="528.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Въезд/Выезд гостя" />
    </children>
 </AnchorPane>
